@@ -24,7 +24,7 @@ model = load_model('./model.h5')#学習済みモデルをロード
 @app.route('/', methods=['GET', 'POST'])
 def upload_file():
     if request.method == 'POST':
-        
+
         if 'file' not in request.files:
             flash('ファイルがありません')
 
@@ -66,4 +66,5 @@ def upload_file():
 
 
 if __name__ == "__main__":
-    app.run()
+    port = int(os.environ.get('PORT', 8080))
+    app.run(host ='0.0.0.0',port = port)
